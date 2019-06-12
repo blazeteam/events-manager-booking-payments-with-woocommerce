@@ -36,6 +36,7 @@ function blz_eventwoo_cart_link( $output, $em_event, $target ){
     }
     // error_log ( print_r ( $em_event, true ) );
     // error_log ( print_r ( $target, true ) );
+    error_log ( print_r ( $output, true ) );
     return $output;
 }
 add_filter( 'em_event_output_single', 'blz_eventwoo_cart_link', 20, 3 );
