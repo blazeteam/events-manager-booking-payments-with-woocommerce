@@ -3,8 +3,8 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 function blz_eventwoo_init_product(){
-    $activate_plugin = get_option( 'Activated_Plugin' );
-    if ( is_admin() && get_option( 'Activated_Plugin' ) == 'Blaze_Event_Woo' ) {
+    $activate_plugin = get_option( 'Activated_Blaze_EventWoo_Plugin' );
+    if ( is_admin() && get_option( 'Activated_Blaze_EventWoo_Plugin' ) == 'Blaze_Event_Woo' ) {
         // TODO - Check if product is already installed.
         if ( blz_eventwoo_get_product_by_sku( 'Event Booking' ) ) {
             $product_id = 'Event Booking';
@@ -17,7 +17,7 @@ function blz_eventwoo_init_product(){
             <?php            
         } else {
             $objProduct = new WC_Product();
-            $objProduct->set_name("Product Title");
+            $objProduct->set_name("Event Booking");
             $objProduct->set_status("publish");  // can be publish,draft or any wordpress post status
             $objProduct->set_catalog_visibility('visible'); // add the product visibility status
             $objProduct->set_description("Event Booking");
@@ -36,11 +36,12 @@ function blz_eventwoo_init_product(){
             ?>
             <div class="notice notice-success is-dismissible">
                 <p>
-                    <?php _e( 'WooCommerce Product for Event Bookings has been created with product SKU - <strong>' . $product_id . '</strong>.', 'blaze-event-woo' ); ?>
+                    <?php _e( 'WooCommerce Product for Event Bookings has been created with product ID - <strong>' . $product_id . '</strong>.', 'blaze-event-woo' ); ?>
                 </p>
             </div>
             <?php            
         }
+        delete_option('Activated_Blaze_EventWoo_Plugin');
     }
 }
 add_action( 'admin_init', 'blz_eventwoo_init_product' );

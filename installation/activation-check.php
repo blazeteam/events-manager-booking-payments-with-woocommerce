@@ -19,7 +19,7 @@ if (!class_exists('BLZ_EventWoo_Install_Check')) {
                 $error_message = __('This plugin requires <a href="https://wordpress.org/plugins/events-manager/">Events Manager</a> plugin to be active!', 'woocommerce');
                 die($error_message);
             }
-            add_option('Activated_Plugin', 'Blaze_Event_Woo');
+            add_option('Activated_Blaze_EventWoo_Plugin', 'Blaze_Event_Woo');
         }
     }
 }
