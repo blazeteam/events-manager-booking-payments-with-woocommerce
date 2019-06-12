@@ -19,6 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * @since 1.0.0
 **/
 
-include plugin_dir_path( __FILE__ ) . 'installation/add-product.php';
-include plugin_dir_path( __FILE__ ) . 'installation/activation-check.php';
+include_once dirname( __FILE__ ) . '/installation/add-product.php';
+include_once dirname( __FILE__ ) . '/installation/activation-check.php';
 
+register_activation_hook( __FILE__, array('BLZ_EventWoo_Install_Check', 'install') );
