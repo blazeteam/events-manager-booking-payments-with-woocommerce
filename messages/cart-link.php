@@ -15,9 +15,6 @@ function blz_eventwoo_cart_link( $output, $em_event, $target ){
         $EM_Booking = $em_event->get_bookings()->has_booking();
         // TODO - Add unpaid check
         if ( is_object( $EM_Booking ) ) {
-            // echo '<pre>';
-            // print_r($EM_Booking);
-            // echo '</pre>';
             $unpaid_statuses = array(
                 'Pending',
                 'Awaiting Online Payment',
