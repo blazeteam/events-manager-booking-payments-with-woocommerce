@@ -4,7 +4,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 function blz_eventwoo_init_product(){
     $activate_plugin = get_option( 'Activated_Plugin' );
-    error_log ( print_r ( $activate_plugin, true ) );
     if ( is_admin() && get_option( 'Activated_Plugin' ) == 'Blaze_Event_Woo' ) {
         // TODO - Check if product is already installed.
         if ( blz_eventwoo_get_product_by_sku( 'Event Booking' ) ) {
