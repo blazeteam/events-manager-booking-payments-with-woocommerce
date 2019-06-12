@@ -21,5 +21,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 include_once dirname( __FILE__ ) . '/installation/add-product.php';
 include_once dirname( __FILE__ ) . '/installation/activation-check.php';
+include_once dirname( __FILE__ ) . '/messages/cart-link.php';
 
 register_activation_hook( __FILE__, array('BLZ_EventWoo_Install_Check', 'install') );
