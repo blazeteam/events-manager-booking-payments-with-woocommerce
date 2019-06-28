@@ -1,0 +1,11 @@
+.css-my-bookings .woocommerce-MyAccount-navigation ,
+.css-my-bookings .em-my-bookings {
+    display: inline-block;
+    vertical-align: top;
+}
+
+
+.css-my-bookings .em-my-bookings {
+    width: calc(100% - 255px);
+}
+
