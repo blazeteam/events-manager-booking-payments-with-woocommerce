@@ -56,3 +56,13 @@ Go to WooCommerce -> Settings -> Events (tab) and update the settings there.
 = How do I hide the product name "Event Booking" from the cart pages? =
 
 Go to WooCommerce -> Settings -> Events (tab) and set the option for "Hide product name in cart".
+
+== Screenshots ==
+
+1. WooCommerce Basket with Event Details
+
+
+== Changelog ==
+
+= 1.0.0 =
+* Initial release
