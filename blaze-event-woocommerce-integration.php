@@ -2,9 +2,8 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
- * Plugin Name: Blaze Event - WooCommerce Integration
- * Version: 1.0
- * Plugin URI: https://www.blazeconcepts.co.uk
+ * Plugin Name: Events Manager Booking Payments with WooCommerce
+ * Version: 1.0.0
  * Description: Connect the Events Manager plugin to WooCommerce to add an Event Booking product to the checkout when an event is booked.
  * Author: Blaze Concepts
  * Author URI: https://www.blazeconcepts.co.uk
