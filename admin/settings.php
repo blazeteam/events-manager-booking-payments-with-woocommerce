@@ -48,41 +48,37 @@ class blz_eventwoo_settings_tab {
 
 
     /**
-     * Get all the settings for this plugin for @see woocommerce_admin_fields() function.
-     *
-     * @return array Array of settings for @see woocommerce_admin_fields() function. 
+     * Get all the settings for this plugin to generate the Settings Page in WooCommerce.
+     * @see woocommerce_admin_fields() function.
+     * @return array Array of settings. 
      */
     public static function get_settings() {
         $settings = array(
             'section_title' => array(
-                'name'     => __( 'Work in Progress - Please ignore this tab', 'blaze-event-woo' ),
+                'name'     => __( 'Events Manager for WooCommerce Settings', 'blaze-event-woo' ),
                 'type'     => 'title',
                 'desc'     => '',
-                'id'       => 'wc_settings_tab_demo_section_title'
+                'id'       => 'blz_eventwoo_title'
+            ),
+            'blz_eventwoo_product_added_message' => array(
+                'name' => __( 'Product added message', 'blaze-event-woo' ),
+                'type' => 'textarea',
+                'desc' => __( 'The message displayed to the user when they make a booking on the event page', 'blaze-event-woo' ),
+                'id'   => 'blz_eventwoo_product_added_message',
+                'default' => 'You have a pending booking for this event, we have added an event booking item to your shopping basket',
+            ),
+            'blz_eventwoo_product_added_link_to_cart' => array(
+                'name' => __( 'Link to cart message', 'blaze-event-woo' ),
+                'type' => 'textarea',
+                'desc' => __( 'The text displayed on the cart link when they make a booking on the event page', 'blaze-event-woo' ),
+                'id'   => 'blz_eventwoo_product_added_link_to_cart',
+                'default' => 'please proceed to the checkout when you are ready.',
             ),
             'blz_eventwoo_hide_product_name_in_cart' => array(
-                'name' => __( 'Hide product name in Cart', 'blaze-event-woo' ),
+                'name' => __( 'Hide product name in cart', 'blaze-event-woo' ),
                 'type' => 'checkbox',
                 'desc' => __( 'This hides the product name in the cart page and mini cart.', 'blaze-event-woo' ),
                 'id'   => 'blz_eventwoo_hide_product_name_in_cart'
-            ),
-            'blz_eventwoo_hide_event_table_in_cart' => array(
-                'name' => __( 'Hide event table in Cart', 'blaze-event-woo' ),
-                'type' => 'checkbox',
-                'desc' => __( 'This hides the event table in the cart and mini cart.', 'blaze-event-woo' ),
-                'id'   => 'blz_eventwoo_hide_event_table_in_cart'
-            ),
-            'title' => array(
-                'name' => __( 'Title', 'blaze-event-woo' ),
-                'type' => 'text',
-                'desc' => __( 'This is some helper text', 'blaze-event-woo' ),
-                'id'   => 'wc_settings_tab_demo_title'
-            ),
-            'description' => array(
-                'name' => __( 'Description', 'blaze-event-woo' ),
-                'type' => 'textarea',
-                'desc' => __( 'This is a paragraph describing the setting. Lorem ipsum yadda yadda yadda. Lorem ipsum yadda yadda yadda. Lorem ipsum yadda yadda yadda. Lorem ipsum yadda yadda yadda.', 'blaze-event-woo' ),
-                'id'   => 'wc_settings_tab_demo_description'
             ),
             'section_end' => array(
                  'type' => 'sectionend',
