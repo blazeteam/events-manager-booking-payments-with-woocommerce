@@ -11,14 +11,24 @@ class blz_eventwoo_settings_tab {
         add_action( 'woocommerce_update_options_settings_tab_blz_eventwoo', __CLASS__ . '::update_settings' );
     }
     
-
+    /**
+     * Add the link to the settings page on the Plugins screen
+     *
+     * @param array $links
+     * @return array
+     */
     public static function settings_link( $links ) {
         $settings_link = '<a href="admin.php?page=wc-settings&tab=settings_tab_blz_eventwoo">' . __( 'Settings' ) . '</a>';
         array_push( $links, $settings_link );
         return $links;
     }
 
-
+    /**
+     * Add the Events settings tab to the WooCommerce Settings screen
+     *
+     * @param array $settings_tabs
+     * @return array
+     */
     public static function add_settings_tab( $settings_tabs ) {
         $settings_tabs['settings_tab_blz_eventwoo'] = __( 'Events', 'blz_eventwoo' );
         return $settings_tabs;

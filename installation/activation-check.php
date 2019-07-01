@@ -3,7 +3,8 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 
-// Check WooCommerce and the Event Manager is installed as thats pretty important with this plugin
+/* Check WooCommerce and the Event Manager is installed as thats pretty important with this plugin 
+*/
 if (!class_exists('BLZ_EventWoo_Install_Check')) {
     class BLZ_EventWoo_Install_Check
     {
@@ -23,6 +24,3 @@ if (!class_exists('BLZ_EventWoo_Install_Check')) {
         }
     }
 }
-
-
-// END Check WooCommerce is installed

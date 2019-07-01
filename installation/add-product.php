@@ -2,6 +2,11 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+/**
+ * Create the WooCommerce product that we'll be using for the cart items.
+ *
+ * @return void
+ */
 function blz_eventwoo_init_product(){
     $activate_plugin = get_option( 'Activated_Blaze_EventWoo_Plugin' );
     if ( is_admin() && get_option( 'Activated_Blaze_EventWoo_Plugin' ) == 'Blaze_Event_Woo' ) {
@@ -45,7 +50,12 @@ function blz_eventwoo_init_product(){
 }
 add_action( 'admin_init', 'blz_eventwoo_init_product' );
 
-
+/**
+ * Get the WooCommerce product from the Sku.
+ *
+ * @param string $sku The product sku
+ * @return WC_Product|null A WooCommerce product object or null if not found
+ */
 function blz_eventwoo_get_product_by_sku( $sku ) {
     global $wpdb;
     $product_id = $wpdb->get_var( $wpdb->prepare( "SELECT post_id FROM $wpdb->postmeta WHERE meta_key='_sku' AND meta_value='%s' LIMIT 1", $sku ) );
