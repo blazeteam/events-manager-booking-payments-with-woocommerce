@@ -26,6 +26,7 @@ include_once dirname( __FILE__ ) . '/cart/cart-link.php';
 include_once dirname( __FILE__ ) . '/cart/cart.php';
 include_once dirname( __FILE__ ) . '/bookings/booking-status.php';
 include_once dirname( __FILE__ ) . '/account/account-pages.php';
+include_once dirname( __FILE__ ) . '/account/event-page-create-account.php';
 include_once dirname( __FILE__ ) . '/admin/settings.php';
 
 

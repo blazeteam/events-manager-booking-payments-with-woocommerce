@@ -64,6 +64,12 @@ class blz_eventwoo_settings_tab {
      */
     public static function get_settings() {
         $settings = array(
+            'blz_eventwoo_booking_recommendation' => array(
+                'name' => __( 'Recommendations', 'blaze-event-woo' ),
+                'type' => 'title',
+                'desc' => __( 'Events payments currently requires that users are logged in so we recommend setting the Allow Guest Bookings (in Events -> Settings -> Bookings -> General Options) to No. <br/>We also recommend that you allow users to register (in Settings -> General -> Membership).', 'blaze-event-woo' ),
+                'id'   => 'blz_eventwoo_booking_recommendation',
+            ),
             'section_title' => array(
                 'name'     => __( 'Events Manager for WooCommerce Settings', 'blaze-event-woo' ),
                 'type'     => 'title',
