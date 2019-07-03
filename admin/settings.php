@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class blz_eventwoo_settings_tab {
 
     public static function init(){
-        $plugin = PLUGIN;
+        $plugin = BLZ_EVENTWOO_PLUGIN;
         add_filter( "plugin_action_links_$plugin", __CLASS__ . '::settings_link' );
         add_filter( 'woocommerce_settings_tabs_array', __CLASS__ . '::add_settings_tab', 50 );
         add_action( 'woocommerce_settings_tabs_settings_tab_blz_eventwoo', __CLASS__ . '::settings_tab' );

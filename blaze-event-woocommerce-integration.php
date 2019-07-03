@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * @since 1.0.0
 **/
 
-define ( 'PLUGIN', plugin_basename( __FILE__ ) );
+define ( 'BLZ_EVENTWOO_PLUGIN', plugin_basename( __FILE__ ) );
 
 include_once dirname( __FILE__ ) . '/installation/add-product.php';
 include_once dirname( __FILE__ ) . '/installation/activation-check.php';
