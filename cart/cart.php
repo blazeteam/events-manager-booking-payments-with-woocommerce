@@ -19,8 +19,8 @@ function blz_eventwoo_display_cart_item_custom_meta_data( $item_data, $cart_item
         $manage_bookings_page = get_post( $cart_item['Manage Bookings'] );
         $url = get_permalink( $manage_bookings_page );
         $item_data[] = array(
-            'key'       => "<a href='$url'>Manage My Bookings</a>",
-            'value'     => '',
+            'key'       => "manage-booking-button",
+            'value'     => "<a  class='button button-secondary' href='$url'>Manage My Bookings</a>",
         );
     }
     return $item_data;
@@ -163,3 +163,48 @@ function blz_eventwoo_hide_product_name($product_name){
     return $product_name;
 }
 add_filter( 'woocommerce_cart_item_name', 'blz_eventwoo_hide_product_name', 10, 1 );
+
+/**
+ * Modify (currently remove) the default remote cart item button on the Event Booking line as the 
+ * cart is automatically re-generated
+ *
+ * @param string $link html for the remove button
+ * @param string|int $cart_item_key
+ * @return string $link
+ */
+function blz_eventwoo_cart_item_remove_to_bookings( $link, $cart_item_key ){
+    $cart_item = WC()->cart->get_cart_item( $cart_item_key );
+    $product_id = $cart_item['product_id'];
+    $product = wc_get_product( $product_id );
+    $product_slug = $product->get_slug();
+    if ( $product_slug == 'event-booking' ) {
+        // TODO - Would be better to redirect the remove item button to the Manage My Bookings page 
+        // but WooCommerce intercepts the button and causes an Ajax reload which stops any redirect
+        // working.
+        // $link = "Remove your unpaid bookings using the Manage My Bookings page.";
+        $link = "<span class'remove disabled' title='To remove this line, remove your unpaid bookings using the Manage My Bookings page.'>&times;</span>";
+    }
+    return $link;
+}
+add_filter( 'woocommerce_cart_item_remove_link', 'blz_eventwoo_cart_item_remove_to_bookings', 10, 2 );
+
+/**
+ * Confirm that the user intended to remove bookings by clicking the remove cart item button.
+ *
+ * @param string $cart_item_key Cart item key to remove from the cart.
+ * @param WC_Cart $cart
+ * @return void
+ */
+function blz_eventwoo_confirm_remove_bookings($cart_item_key, $cart){
+    $cart_item = WC()->cart->get_cart_item( $cart_item_key );
+    $product_id = $cart_item['product_id'];
+    $product = wc_get_product( $product_id );
+    $product_slug = $product->get_slug();
+    if ( $product_slug == 'event-booking' ) {
+        $booking_ids = $cart_item['bookingIDs'];
+        error_log ( print_r ( $booking_ids, true ) );
+        
+        # code...
+    }
+}
+// add_action( 'woocommerce_remove_cart_item', 'blz_eventwoo_confirm_remove_bookings', 10, 2 );

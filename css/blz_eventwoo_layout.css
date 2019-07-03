@@ -9,3 +9,6 @@
     width: calc(100% - 255px);
 }
 
+td.product-name dl.variation dt.variation-manage-booking-button {
+    display: none;
+}
