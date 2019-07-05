@@ -59,6 +59,15 @@ add_action( 'admin_init', 'blz_eventwoo_init_product' );
 function blz_eventwoo_get_product_by_sku( $sku ) {
     global $wpdb;
     $product_id = $wpdb->get_var( $wpdb->prepare( "SELECT post_id FROM $wpdb->postmeta WHERE meta_key='_sku' AND meta_value='%s' LIMIT 1", $sku ) );
-    if ( $product_id ) return new WC_Product( $product_id );
+    if ( $product_id ) {
+        $product = new WC_Product( $product_id );
+        if ( $product->get_status() == 'publish' ) {
+            return $product;
+        } else {
+            error_log ( __( 'Event Booking product not found or published, please check it hasn\'nt been deleted.', 'eventwoo' ) );
+            return $product;
+        }
+    }
+    error_log ( __( 'Event Booking product not found or published, please check it hasn\'nt been deleted.', 'eventwoo' ) );
     return null;
 }

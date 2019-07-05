@@ -93,36 +93,39 @@ function blz_eventwoo_add_event_product() {
         'event_places_cost' => 0,
         'events' => '',
     );
+    $booking_ids = array();
+    $booking_count = 0;
     $event_table = "<table class='cart-event-table'>";
-        $event_table .= "<tr>
-            <th>Event Name</th>
-            <th>Places</th>
-        </tr>";
-        
-        $booking_ids = array();
-        $booking_count = 0;
-        foreach($bookings as $booking){
-            if ($booking->booking_status == 0 || $booking->booking_status == 4 || $booking->booking_status == 5 ){
-                // Event Manager Booking Status ID's - 0 = Pending, 1 = Approved, 2 = Rejected, 3 = Cancelled, 4 = Awaiting Online Payment, 5 = Awaiting Payment
-                $booking_count++;
-                $em_event = $booking->get_event();
-                $booking_id = $booking->booking_id;
-                $event_table .= "<tr data-eventID='{$em_event->event_id}' data-bookingID='{$booking_id}'>";
-                $event_table .= "   <td class='name'><a href='{$em_event->get_permalink()}'>{$em_event->event_name}</a></td>";
-                $event_table .= "   <td class='spaces'>{$booking->get_spaces()}</td>";
-                $event_table .= "</tr>";
-                $cart_item_data['event_places_cost'] = $cart_item_data['event_places_cost'] + $booking->get_price_pre_taxes();
-                array_push($booking_ids, $booking_id);
-            }
+    $event_table .= "<tr>
+        <th>Event Name</th>
+        <th>Places</th>
+        </tr>";        
+    foreach($bookings as $booking){
+        if ($booking->booking_status == 0 || $booking->booking_status == 4 || $booking->booking_status == 5 ){
+            // Event Manager Booking Status ID's - 0 = Pending, 1 = Approved, 2 = Rejected, 3 = Cancelled, 4 = Awaiting Online Payment, 5 = Awaiting Payment
+            $booking_count++;
+            $em_event = $booking->get_event();
+            $booking_id = $booking->booking_id;
+            $event_table .= "<tr data-eventID='{$em_event->event_id}' data-bookingID='{$booking_id}'>";
+            $event_table .= "   <td class='name'><a href='{$em_event->get_permalink()}'>{$em_event->event_name}</a></td>";
+            $event_table .= "   <td class='spaces'>{$booking->get_spaces()}</td>";
+            $event_table .= "</tr>";
+            $cart_item_data['event_places_cost'] = $cart_item_data['event_places_cost'] + $booking->get_price_pre_taxes();
+            array_push($booking_ids, $booking_id);
         }
-        $event_table .= "</table>";
+    }
+    $event_table .= "</table>";
     $cart_item_data['events'] = $event_table;
     $cart_item_data['bookingIDs'] = implode(',', $booking_ids);
     $cart_item_data['Manage Bookings'] = get_option( 'dbem_my_bookings_page' );
     $wc_product = blz_eventwoo_get_product_by_sku( 'Event Booking' );
     $product_id = $wc_product->get_id();
     if ($booking_count > 0){
-        $woocommerce->cart->add_to_cart($product_id, 1, 0, array(), $cart_item_data);
+        $result = $woocommerce->cart->add_to_cart($product_id, 1, 0, array(), $cart_item_data);
+        if ( ( $result == null ) || ( $result == false ) ){
+            wc_add_notice( __('Could not add event booking to cart.', 'eventwoo'), 'error');
+            error_log ( __( 'Could not add event booking to cart, there is a good change that this is due to the Event Booking product missing.', 'eventwoo' ) );
+        }
     }
 }
 
