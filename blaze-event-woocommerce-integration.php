@@ -3,17 +3,17 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
  * Plugin Name: Events Manager Booking Payments with WooCommerce
- * Version: 1.0.0
+ * Version: 1.0.1
  * Description: Connect the Events Manager plugin to WooCommerce to add an Event Booking product to the checkout when an event is booked.
  * Author: Blaze Concepts
  * Author URI: https://www.blazeconcepts.co.uk
  * Requires at least: 4.0
  * Tested up to: 4.0
  *
- * Text Domain: blaze-event-woo
+ * Text Domain: eventwoo
  * Domain Path: /lang/
  *
- * @package Blaze Event Woo
+ * @package Event Woo
  * @author Blaze Concepts Ltd
  * @since 1.0.0
 **/

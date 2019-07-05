@@ -20,7 +20,7 @@ function blz_eventwoo_display_cart_item_custom_meta_data( $item_data, $cart_item
         $url = get_permalink( $manage_bookings_page );
         $item_data[] = array(
             'key'       => "manage-booking-button",
-            'value'     => "<a  class='button button-secondary' href='$url'>Manage My Bookings</a>",
+            'value'     => "<a  class='button button-secondary' href='$url'>" . __('Manage My Bookings', 'eventwoo') . "</a>",
         );
     }
     return $item_data;
@@ -96,10 +96,9 @@ function blz_eventwoo_add_event_product() {
     $booking_ids = array();
     $booking_count = 0;
     $event_table = "<table class='cart-event-table'>";
-    $event_table .= "<tr>
-        <th>Event Name</th>
-        <th>Places</th>
-        </tr>";        
+    $heading_event_name = __('Event Name', 'eventwoo');
+    $heading_places = __('Places', 'eventwoo');
+    $event_table .= "<tr><th>$heading_event_name</th><th>$heading_places</th></tr>";        
     foreach($bookings as $booking){
         if ($booking->booking_status == 0 || $booking->booking_status == 4 || $booking->booking_status == 5 ){
             // Event Manager Booking Status ID's - 0 = Pending, 1 = Approved, 2 = Rejected, 3 = Cancelled, 4 = Awaiting Online Payment, 5 = Awaiting Payment
@@ -184,30 +183,8 @@ function blz_eventwoo_cart_item_remove_to_bookings( $link, $cart_item_key ){
         // TODO - Would be better to redirect the remove item button to the Manage My Bookings page 
         // but WooCommerce intercepts the button and causes an Ajax reload which stops any redirect
         // working.
-        // $link = "Remove your unpaid bookings using the Manage My Bookings page.";
-        $link = "<span class'remove disabled' title='To remove this line, remove your unpaid bookings using the Manage My Bookings page.'>&times;</span>";
+        $link = "<span class'remove disabled' title='" . __( 'To remove this line, remove your unpaid bookings using the Manage My Bookings page.', 'eventwoo' ) . "'>&times;</span>";
     }
     return $link;
 }
 add_filter( 'woocommerce_cart_item_remove_link', 'blz_eventwoo_cart_item_remove_to_bookings', 10, 2 );
-
-/**
- * Confirm that the user intended to remove bookings by clicking the remove cart item button.
- *
- * @param string $cart_item_key Cart item key to remove from the cart.
- * @param WC_Cart $cart
- * @return void
- */
-function blz_eventwoo_confirm_remove_bookings($cart_item_key, $cart){
-    $cart_item = WC()->cart->get_cart_item( $cart_item_key );
-    $product_id = $cart_item['product_id'];
-    $product = wc_get_product( $product_id );
-    $product_slug = $product->get_slug();
-    if ( $product_slug == 'event-booking' ) {
-        $booking_ids = $cart_item['bookingIDs'];
-        error_log ( print_r ( $booking_ids, true ) );
-        
-        # code...
-    }
-}
-// add_action( 'woocommerce_remove_cart_item', 'blz_eventwoo_confirm_remove_bookings', 10, 2 );
