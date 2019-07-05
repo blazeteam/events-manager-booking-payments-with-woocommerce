@@ -16,7 +16,7 @@ function blz_eventwoo_init_product(){
             ?>
             <div class="notice notice-success is-dismissible">
                 <p>
-                    <?php _e( 'WooCommerce Product for Event Bookings has already been created with product SKU - <strong>' . $product_id . '</strong>.', 'blaze-event-woo' ); ?>
+                    <?php _e( 'WooCommerce Product for Event Bookings has already been created with product SKU - <strong>' . $product_id . '</strong>.', 'eventwoo' ); ?>
                 </p>
             </div>
             <?php            
@@ -40,7 +40,7 @@ function blz_eventwoo_init_product(){
             ?>
             <div class="notice notice-success is-dismissible">
                 <p>
-                    <?php _e( 'WooCommerce Product for Event Bookings has been created with product ID - <strong>' . $product_id . '</strong>.', 'blaze-event-woo' ); ?>
+                    <?php _e( 'WooCommerce Product for Event Bookings has been created with product ID - <strong>' . $product_id . '</strong>.', 'eventwoo' ); ?>
                 </p>
             </div>
             <?php            

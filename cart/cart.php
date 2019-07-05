@@ -183,7 +183,8 @@ function blz_eventwoo_cart_item_remove_to_bookings( $link, $cart_item_key ){
         // TODO - Would be better to redirect the remove item button to the Manage My Bookings page 
         // but WooCommerce intercepts the button and causes an Ajax reload which stops any redirect
         // working.
-        $link = "<span class'remove disabled' title='" . __( 'To remove this line, remove your unpaid bookings using the Manage My Bookings page.', 'eventwoo' ) . "'>&times;</span>";
+        $message = __( 'To remove this line, remove your unpaid bookings using the Manage My Bookings page.', 'eventwoo' );
+        $link = "<span class='remove disabled' title='$message'>&times;</span>";
     }
     return $link;
 }

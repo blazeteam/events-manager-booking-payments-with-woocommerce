@@ -9,6 +9,9 @@
     width: calc(100% - 255px);
 }
 
-td.product-name dl.variation dt.variation-manage-booking-button {
+td.product-name dl.variation dt.variation-manage-booking-button ,
+.mini_cart span.remove.disabled ,
+.variation-manage-booking-button {
     display: none;
 }
+
