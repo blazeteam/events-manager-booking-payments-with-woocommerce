@@ -4,7 +4,7 @@ Donate link: https://www.paypal.me/blazeconcepts
 Tags: woocommerce, events, manager, payment, bookings
 Requires at least: 4.7
 Tested up to: 5.2.2
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 WC requires at least: 3.5
 WC tested up to: 3.6.4
 License: GPLv2 or later
