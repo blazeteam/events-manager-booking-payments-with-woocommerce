@@ -102,6 +102,20 @@ class blz_eventwoo_settings_tab {
                 'desc' => __( 'This disables the Spaces dropdown selectors if the vsitior is not logged in.', 'eventwoo' ),
                 'id'   => 'blz_eventwoo_disable_spaces_if_logged_out'
             ),
+            'blz_eventwoo_display_registered_message_on_event_page' => array(
+                'name' => __( 'Display registration message', 'eventwoo' ),
+                'type' => 'checkbox',
+                'desc' => __( 'Display the Account Created message on the Event page when just registered.', 'eventwoo' ),
+                'id'   => 'blz_eventwoo_display_registered_message_on_event_page'
+            ),
+            'blz_eventwoo_registered_message' => array(
+                'name' => __( 'Registered message', 'eventwoo' ),
+                'type' => 'textarea',
+                'desc' => __( 'The message displayed to when the user on the Event page has just registered.', 'eventwoo' ),
+                'id'   => 'blz_eventwoo_registered_message',
+                'default' => 'Your account has been created and we\'ve logged you in. We\'ve sent you an email with your username and password.',
+            ),
+
             'section_end' => array(
                  'type' => 'sectionend',
                  'id' => 'wc_settings_tab_demo_section_end'

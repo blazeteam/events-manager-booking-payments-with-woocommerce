@@ -33,3 +33,21 @@ function blz_eventwoo_registration_form( $event_string, $em_event, $format, $tar
     return $event_string;
 }
 add_filter( 'em_event_output', 'blz_eventwoo_registration_form', 10, 4 );
+
+
+function blz_eventwoo_display_wc_messages( $event_string, $em_event, $target ){
+    // $message = wc_print_notices( true );
+    // $message = WC()->session->get('wc_notices');
+    if ( is_user_logged_in(  ) && $target == 'html' && get_option( 'blz_eventwoo_display_registered_message_on_event_page' ) == 'yes' ){
+        $user = wp_get_current_user();
+        $user_registered_time = new DateTime($user->data->user_registered);
+        $current_time = new DateTime();
+        $timediff = $current_time->getTimestamp() - $user_registered_time->getTimestamp();
+        if ( $timediff < 10 ) {
+            $message = get_option( 'blz_eventwoo_registered_message', __('Your account has been created and we\'ve logged you in. We\'ve sent you an email with your username and password.', 'eventwoo' ) );
+            $event_string = '<p class="notice">' . $message . '</p>' . $event_string;
+        }    
+    }
+    return $event_string;
+}
+add_filter ('em_event_output_single', 'blz_eventwoo_display_wc_messages', 9, 4);
