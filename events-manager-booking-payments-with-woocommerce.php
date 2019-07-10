@@ -7,9 +7,9 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * Description: Connect the Events Manager plugin to WooCommerce to add an Event Booking product to the checkout when an event is booked.
  * Author: Blaze Concepts
  * Author URI: https://www.blazeconcepts.co.uk
- * Requires at least: 4.0
- * Tested up to: 4.0
- *
+ * WC requires at least: 3.5
+ * WC tested up to: 3.6
+ * 
  * Text Domain: eventwoo
  * Domain Path: /lang/
  *
@@ -28,6 +28,7 @@ include_once dirname( __FILE__ ) . '/bookings/booking-status.php';
 include_once dirname( __FILE__ ) . '/account/account-pages.php';
 include_once dirname( __FILE__ ) . '/account/event-page-create-account.php';
 include_once dirname( __FILE__ ) . '/admin/settings.php';
+include_once dirname( __FILE__ ) . '/events/event-pages.php';
 
 
 register_activation_hook( __FILE__, array('BLZ_EventWoo_Install_Check', 'install') );

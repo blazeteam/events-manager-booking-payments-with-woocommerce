@@ -96,6 +96,12 @@ class blz_eventwoo_settings_tab {
                 'desc' => __( 'This hides the product name in the cart page and mini cart.', 'eventwoo' ),
                 'id'   => 'blz_eventwoo_hide_product_name_in_cart'
             ),
+            'blz_eventwoo_disable_spaces_if_logged_out' => array(
+                'name' => __( 'Disable the Spaces dropdowns if logged out', 'eventwoo' ),
+                'type' => 'checkbox',
+                'desc' => __( 'This disables the Spaces dropdown selectors if the vsitior is not logged in.', 'eventwoo' ),
+                'id'   => 'blz_eventwoo_disable_spaces_if_logged_out'
+            ),
             'section_end' => array(
                  'type' => 'sectionend',
                  'id' => 'wc_settings_tab_demo_section_end'

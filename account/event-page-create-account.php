@@ -14,7 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * @return string $event_string
  */
 function blz_eventwoo_registration_form( $event_string, $em_event, $format, $target ){
-
     if( !is_user_logged_in() && $target == 'html' ){
         if ( strpos( $event_string, get_option( 'dbem_booking_feedback_log_in' ) ) ) {
             // Use the WooCommerce login form as it includes a registration form if the option is enabled.
