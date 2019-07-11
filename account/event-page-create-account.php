@@ -35,9 +35,17 @@ function blz_eventwoo_registration_form( $event_string, $em_event, $format, $tar
 add_filter( 'em_event_output', 'blz_eventwoo_registration_form', 10, 4 );
 
 
+/**
+ * Display Account Created message on event page when just logged in
+ * Cannot find suitable way to use the `user_register` action as it fires too early to be able to add 
+ * the message. Currently using a time different from the registered time to the current server time.
+ *
+ * @param string $event_string
+ * @param EM_Event $em_event
+ * @param string $target
+ * @return void
+ */
 function blz_eventwoo_display_wc_messages( $event_string, $em_event, $target ){
-    // $message = wc_print_notices( true );
-    // $message = WC()->session->get('wc_notices');
     if ( is_user_logged_in(  ) && $target == 'html' && get_option( 'blz_eventwoo_display_registered_message_on_event_page' ) == 'yes' ){
         $user = wp_get_current_user();
         $user_registered_time = new DateTime($user->data->user_registered);

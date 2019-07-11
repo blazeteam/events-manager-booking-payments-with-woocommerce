@@ -70,8 +70,8 @@ class blz_eventwoo_settings_tab {
                 'desc' => __( 'Events payments currently requires that users are logged in so we recommend setting the Allow Guest Bookings (in Events -> Settings -> Bookings -> General Options) to No. <br/>We also recommend that you allow users to register (in Settings -> General -> Membership).', 'eventwoo' ),
                 'id'   => 'blz_eventwoo_booking_recommendation',
             ),
-            'section_title' => array(
-                'name'     => __( 'Events Manager for WooCommerce Settings', 'eventwoo' ),
+            'section_title_events_page' => array(
+                'name'     => __( 'Events Page Settings', 'eventwoo' ),
                 'type'     => 'title',
                 'desc'     => '',
                 'id'       => 'blz_eventwoo_title'
@@ -90,6 +90,17 @@ class blz_eventwoo_settings_tab {
                 'id'   => 'blz_eventwoo_product_added_link_to_cart',
                 'default' => 'please proceed to the checkout when you are ready.',
             ),
+            'section_end_events_page' => array(
+                'type' => 'sectionend',
+                'id' => 'wc_settings_tab_demo_section_end'
+            ),
+
+            'section_title_events_cart' => array(
+                'name'     => __( 'Cart Settings', 'eventwoo' ),
+                'type'     => 'title',
+                'desc'     => '',
+                'id'       => 'blz_eventwoo_events_cart_title'
+            ),
             'blz_eventwoo_hide_product_name_in_cart' => array(
                 'name' => __( 'Hide product name in cart', 'eventwoo' ),
                 'type' => 'checkbox',
@@ -101,6 +112,17 @@ class blz_eventwoo_settings_tab {
                 'type' => 'checkbox',
                 'desc' => __( 'This disables the Spaces dropdown selectors if the vsitior is not logged in.', 'eventwoo' ),
                 'id'   => 'blz_eventwoo_disable_spaces_if_logged_out'
+            ),
+            'section_end' => array(
+                'type' => 'sectionend',
+                'id' => 'wc_settings_tab_demo_section_end'
+            ),
+
+            'blz_eventwoo_registration_section' => array(
+                'name'     => __( 'Registration Message', 'eventwoo' ),
+                'type'     => 'title',
+                'desc'     => '',
+                'id'       => 'blz_eventwoo_registration_section'
             ),
             'blz_eventwoo_display_registered_message_on_event_page' => array(
                 'name' => __( 'Display registration message', 'eventwoo' ),
@@ -116,7 +138,7 @@ class blz_eventwoo_settings_tab {
                 'default' => 'Your account has been created and we\'ve logged you in. We\'ve sent you an email with your username and password.',
             ),
 
-            'section_end' => array(
+            'section_end_registration' => array(
                  'type' => 'sectionend',
                  'id' => 'wc_settings_tab_demo_section_end'
             )

@@ -4,7 +4,7 @@ Donate link: https://www.paypal.me/blazeconcepts
 Tags: woocommerce, events, manager, payment, bookings
 Requires at least: 4.7
 Tested up to: 5.2
-Stable tag: 1.0.1
+Stable tag: 1.1.0
 WC requires at least: 3.5
 WC tested up to: 3.6
 License: GPLv2 or later
@@ -66,3 +66,13 @@ Go to WooCommerce -> Settings -> Events (tab) and set the option for "Hide produ
 
 = 1.0.0 =
 * Initial release
+
+= 1.0.1 =
+5th July 2019
+* Change main plugin filename
+
+= 1.1.0 =
+11th July 2019
+* Enhancement: Option to disable booking spaces drop down selectors if logged out.
+* Enhancement: Option to display Account Created message on event page when just logged in.
+* Enhancement: Improve orgnisation of settings page.
