@@ -61,3 +61,19 @@ function blz_eventwoo_hide_booking_ids( $html, $item, $args ){
     return $html;
 }
 add_filter( 'woocommerce_display_item_meta', 'blz_eventwoo_hide_booking_ids', 10, 3 );
+
+/**
+ * Remove events: label from displayed HTML - Particularly for the customer Order Details page. 
+ * e.g. my-account/view-order/nnnn/
+ *
+ * @param string $html
+ * @param WC_Order_Item $item
+ * @param array $args
+ * @return string
+ */
+function blz_eventwoo_hide_events_label( $html, $item, $args ){
+    $re = '/<strong class="wc-item-meta-label">events:.*<\/strong>/m';
+    $html = preg_replace( $re, '', $html );
+    return $html;
+}
+add_filter( 'woocommerce_display_item_meta', 'blz_eventwoo_hide_events_label', 10, 3 );
