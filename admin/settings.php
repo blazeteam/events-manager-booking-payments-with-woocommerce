@@ -92,7 +92,7 @@ class blz_eventwoo_settings_tab {
             ),
             'section_end_events_page' => array(
                 'type' => 'sectionend',
-                'id' => 'wc_settings_tab_demo_section_end'
+                'id' => 'blz_eventwoo_section_end_events_page'
             ),
 
             'section_title_events_cart' => array(
@@ -113,9 +113,26 @@ class blz_eventwoo_settings_tab {
                 'desc' => __( 'This disables the Spaces dropdown selectors if the vsitior is not logged in.', 'eventwoo' ),
                 'id'   => 'blz_eventwoo_disable_spaces_if_logged_out'
             ),
-            'section_end' => array(
+            'section_end_events_cart' => array(
                 'type' => 'sectionend',
-                'id' => 'wc_settings_tab_demo_section_end'
+                'id' => 'blz_eventwoo_section_end_events_cart'
+            ),
+
+            'section_title_events_order' => array(
+                'name'     => __( 'Order Settings', 'eventwoo' ),
+                'type'     => 'title',
+                'desc'     => '',
+                'id'       => 'blz_eventwoo_order_title'
+            ),
+            'blz_eventwoo_set_event_orders_completed' => array(
+                'name' => __( 'Set orders to completed when paid', 'eventwoo' ),
+                'type' => 'checkbox',
+                'desc' => __( 'This bypasses the Processing order status. Not recommended if you are also selling physical products.', 'eventwoo' ),
+                'id'   => 'blz_eventwoo_set_event_orders_completed'
+            ),
+            'section_title_end_events_order' => array(
+                'type' => 'sectionend',
+                'id' => 'blz_eventwoo_section_title_events_cart'
             ),
 
             'blz_eventwoo_registration_section' => array(
@@ -140,7 +157,7 @@ class blz_eventwoo_settings_tab {
 
             'section_end_registration' => array(
                  'type' => 'sectionend',
-                 'id' => 'wc_settings_tab_demo_section_end'
+                 'id' => 'blz_eventwoo_section_end_registration'
             )
         );
         return apply_filters( 'blz_eventwoo_settings_tab_settings', $settings );
