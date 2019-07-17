@@ -37,5 +37,6 @@ register_activation_hook( __FILE__, array('BLZ_EventWoo_Install_Check', 'install
 /* Enqueue scripts and styles.*/
 function blz_eventwoo_enqueue() {
     wp_enqueue_style( 'blz_eventwoo_layout', plugin_dir_url( __FILE__ )  . '/css/blz_eventwoo_layout.css');
+    wp_enqueue_script( 'blz_eventwoo_script', plugin_dir_url( __FILE__ )  . '/js/eventwoo.js', array('jquery'), true );
 }
 add_action( 'wp_enqueue_scripts', 'blz_eventwoo_enqueue' );

@@ -60,6 +60,7 @@ function blz_eventwoo_update_cart_with_event_bookings(){
     blz_eventwoo_add_event_product();
 }
 add_action( 'template_redirect', 'blz_eventwoo_update_cart_with_event_bookings', 90 );
+add_filter( 'wp_ajax_eventwoo_update_mini_cart', 'blz_eventwoo_update_cart_with_event_bookings' );
 
 
 /**
@@ -189,3 +190,12 @@ function blz_eventwoo_cart_item_remove_to_bookings( $link, $cart_item_key ){
     return $link;
 }
 add_filter( 'woocommerce_cart_item_remove_link', 'blz_eventwoo_cart_item_remove_to_bookings', 10, 2 );
+
+
+
+function blz_eventwoo_update_mini_cart() {
+    echo wc_get_template( 'cart/mini-cart.php' );
+    die();
+}
+add_filter( 'wp_ajax_nopriv_eventwoo_update_mini_cart', 'blz_eventwoo_update_mini_cart' );
+add_filter( 'wp_ajax_eventwoo_update_mini_cart', 'blz_eventwoo_update_mini_cart' );
