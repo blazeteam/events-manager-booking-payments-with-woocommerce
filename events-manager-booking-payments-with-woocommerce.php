@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * Author: Blaze Concepts
  * Author URI: https://www.blazeconcepts.co.uk
  * WC requires at least: 3.5
- * WC tested up to: 3.6
+ * WC tested up to: 3.7
  * 
  * Text Domain: eventwoo
  * Domain Path: /lang/

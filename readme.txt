@@ -1,37 +1,43 @@
 === Events Manager Booking Payments with WooCommerce ===
 Contributors: blazeconcepts
 Donate link: https://www.paypal.me/blazeconcepts
-Tags: woocommerce, events, manager, payment, bookings
+Tags: woocommerce, events, manager, payment, bookings, payment gateway
 Requires at least: 4.7
 Tested up to: 5.2
 Stable tag: 1.1.0
 WC requires at least: 3.5
-WC tested up to: 3.6
+WC tested up to: 3.7
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Integrates the excellent WordPress Events Manager with WooCommerce so that users can use the full range of payment gateways that WooCommerce provide.
+Integrated with Events Manager and WooCommerce, this plugin gives customers a full range of payment gateway options to book and pay for events.
 
 == Description ==
 
-This plugin integrates the popular WordPress [Events Manager](https://en-gb.wordpress.org/plugins/events-manager/) by Marcus Sykes with [WooCommerce](https://en-gb.wordpress.org/plugins/woocommerce/) so that users can use the full range of payment gateways that WooCommerce provide.
+This plugin integrates with the [Events Manager](https://en-gb.wordpress.org/plugins/events-manager/) plugin by Marcus Sykes, providing the full range of payment gateways available in [WooCommerce](https://en-gb.wordpress.org/plugins/woocommerce/).
 
-The plugin works by adding an 'Event Booking' WooCommerce product. Each time the cart is displayed the plugin checks for Pending (or Awaiting Payment or Awaiting Online Payment) event bookings. If any Pending bookings exist the plugin adds the Event Booking product to the cart with the event booking details in the cart item meta information. The visitor can then go through the checkout process in WooCommerce and once complete, the status of the bookings is changed to Approved.
+The plugin works by linking your events to a WooCommerce Product. After the customer selects the quantity they wish the book, it adds the booking to the cart as a product, where the customer can then proceed to the checkout and pay using any of the payment gateways provided by WooCommerce.
 
-If the WooCommerce order is cancelled, the plugin sets the associated booking statuses back to Awaiting Payment.
+You do not need to create a Product for each of your events. The plugin creates just one called 'Event Booking' and this is used dynamically for all your events in order for the WooCommerce integration to work. It is important you do not delete this product otherwise the plugin will stop working! 
 
-The plugin doesn't make assumptions about design and tries to use as little CSS as possible so styling should inherit from your theme without too much trouble.
+It is worth noting that the Events Manager plugin does offer a Pro version with payment intergration however this is limited to just PayPal, Authorize.net and Offline Payments. Our plugin, with WooCommerce offers many more payment gateways including, but not limited to:
+* PayPal
+* SagePay
+* WorldPay
+* Stripe
+* BACS
+* [and more...](https://woocommerce.com/product-category/woocommerce-extensions/payment-gateways/)
 
-## Important Note
-This plugin does not provide events management on it's own, it utilises the [Events Manager](https://en-gb.wordpress.org/plugins/events-manager/) to provide that functionality.
+## Requirements
+For this plugin to work, you need the [Events Manager](https://en-gb.wordpress.org/plugins/events-manager/) and [WooCommerce 3.5+](https://en-gb.wordpress.org/plugins/woocommerce/).
+
+This plugin does not provide events management on it’s own. The Events Manager plugin is required for this functionality.
+
 
 ## Development
-The development repo is at [Github](https://github.com/blazeteam/events-manager-booking-payments-with-woocommerce), where you're welcome to raise issues, submit documentation and pull requests.
-
 This plugin is developed and maintained by [Blaze Concepts](https://www.blazeconcepts.co.uk/) in the UK and we are very greatful to [Marcus Sykes](http://wp-events-plugin.com/) and the [WooCommerce team](https://woocommerce.com) for their respective efforts on Events Manager and WooCommerce.
 
-
-[http://wp-events-plugin.com](http://wp-events-plugin.com) provides a pro version of Events Manager that has it's own booking system as well as a number of other enhancements however this plugin fulfilled our requirement to use different payment gateways and help others to do the same.
+The development repo is at [Github](https://github.com/blazeteam/events-manager-booking-payments-with-woocommerce), where you're welcome to raise issues, submit documentation and pull requests.
 
 == Installation ==
 
@@ -43,9 +49,9 @@ This plugin is developed and maintained by [Blaze Concepts](https://www.blazecon
 3. Click the Settings link to set up any options.
 
 = Manual =
-1. Upload the folder /blaze-event-woocommerce-integration/ to the /wp-content/plugins/ directory.
+1. Upload the folder /events-manager-booking-payments-with-woocommerce/ to the /wp-content/plugins/ directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. Click the Settings link to set up any options.
+3. Click the Settings link to set up any options, or go to WooCommerce -> Settings -> Events (tab).
 
 == FAQ ==
 
@@ -60,6 +66,7 @@ Go to WooCommerce -> Settings -> Events (tab) and set the option for "Hide produ
 == Screenshots ==
 
 1. WooCommerce Basket with Event Details
+2. Plugin settings in WooCommerce
 
 
 == Changelog ==
