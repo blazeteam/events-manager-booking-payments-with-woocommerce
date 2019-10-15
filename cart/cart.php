@@ -60,6 +60,7 @@ function blz_eventwoo_update_cart_with_event_bookings(){
     blz_eventwoo_add_event_product();
 }
 add_action( 'template_redirect', 'blz_eventwoo_update_cart_with_event_bookings', 90 );
+add_filter( 'wp_ajax_eventwoo_update_mini_cart', 'blz_eventwoo_update_cart_with_event_bookings' );
 
 
 /**
@@ -107,7 +108,7 @@ function blz_eventwoo_add_event_product() {
             $booking_id = $booking->booking_id;
             $event_table .= "<tr data-eventID='{$em_event->event_id}' data-bookingID='{$booking_id}'>";
             $event_table .= "   <td class='name'><a href='{$em_event->get_permalink()}'>{$em_event->event_name}</a></td>";
-            $event_table .= "   <td class='spaces'>{$booking->get_spaces()}</td>";
+            $event_table .= "   <td class='spaces' data-spaces='{$booking->get_spaces()}'>{$booking->get_spaces()}</td>";
             $event_table .= "</tr>";
             $cart_item_data['event_places_cost'] = $cart_item_data['event_places_cost'] + $booking->get_price_pre_taxes();
             array_push($booking_ids, $booking_id);
@@ -189,3 +190,12 @@ function blz_eventwoo_cart_item_remove_to_bookings( $link, $cart_item_key ){
     return $link;
 }
 add_filter( 'woocommerce_cart_item_remove_link', 'blz_eventwoo_cart_item_remove_to_bookings', 10, 2 );
+
+
+
+function blz_eventwoo_update_mini_cart() {
+    echo wc_get_template( 'cart/mini-cart.php' );
+    die();
+}
+add_filter( 'wp_ajax_nopriv_eventwoo_update_mini_cart', 'blz_eventwoo_update_mini_cart' );
+add_filter( 'wp_ajax_eventwoo_update_mini_cart', 'blz_eventwoo_update_mini_cart' );

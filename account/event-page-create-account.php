@@ -26,7 +26,7 @@ function blz_eventwoo_registration_form( $event_string, $em_event, $format, $tar
             }
             $login_form = '<div class="eventwoo_woocommerce_login_form">' . ob_get_clean() . '</div>';
             // Have to regex as no suitable hook
-            $re = '/<div.class="em-booking-login.*<\/div>/ms';
+            $re = '/<div.class="em-booking-login">\s+<form.*\s+<\/form>\s+<\/div>/ms';
             $event_string = preg_replace( $re, $login_form, $event_string );
         }        
     }
