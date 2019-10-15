@@ -108,7 +108,7 @@ function blz_eventwoo_add_event_product() {
             $booking_id = $booking->booking_id;
             $event_table .= "<tr data-eventID='{$em_event->event_id}' data-bookingID='{$booking_id}'>";
             $event_table .= "   <td class='name'><a href='{$em_event->get_permalink()}'>{$em_event->event_name}</a></td>";
-            $event_table .= "   <td class='spaces'>{$booking->get_spaces()}</td>";
+            $event_table .= "   <td class='spaces' data-spaces='{$booking->get_spaces()}'>{$booking->get_spaces()}</td>";
             $event_table .= "</tr>";
             $cart_item_data['event_places_cost'] = $cart_item_data['event_places_cost'] + $booking->get_price_pre_taxes();
             array_push($booking_ids, $booking_id);
