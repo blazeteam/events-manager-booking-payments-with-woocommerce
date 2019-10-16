@@ -29,6 +29,7 @@ include_once dirname( __FILE__ ) . '/account/account-pages.php';
 include_once dirname( __FILE__ ) . '/account/event-page-create-account.php';
 include_once dirname( __FILE__ ) . '/admin/settings.php';
 include_once dirname( __FILE__ ) . '/admin/orders.php';
+include_once dirname( __FILE__ ) . '/admin/bookings-report.php';
 include_once dirname( __FILE__ ) . '/events/event-pages.php';
 
 
